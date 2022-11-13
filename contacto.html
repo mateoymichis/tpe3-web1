@@ -1,0 +1,57 @@
+<head></head>
+<body>
+    <p class="contactenos">Contactenos para obtener más información sobre nuestros destinos y ofertas. Deje su consulta y un representante le responderá a la brevedad.</p>
+        <form class="formulario" id="form" action="">
+            <div class="formulario-campo">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" name="nombre" placeholder="Nombre" value="" required>
+            </div>
+            <div class="formulario-campo">
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" name="apellido" placeholder="Apellido" value="" required>
+            </div>
+            <div class="formulario-campo">
+                <label for="email">Correo electrónico</label>
+                <input id="email" type="email" name="email" placeholder="Correo electrónico" value="" required>
+            </div>
+            <div class="formulario-campo">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="phone" name="telefono" value="" placeholder="Teléfono" required>
+            </div>
+            <div class="formulario-campo">
+                <label for="edad">Edad</label>
+                <input id="edad" type="number" name="edad" min="18" max="100" value="" placeholder="Edad" required>
+            </div>
+            <div class="formulario-campo"> 
+                <label for="sexo" >Sexo</label>
+                <label><input id="femenino" type="radio" value="femenino" name="sexo">Femenino</label>
+                <label><input id="masculino" type="radio" value="masculino" name="sexo">Masculino</label>
+                <label><input id="otro" type="radio" value="otro" name="sexo" required>Otro</label>
+            </div>
+            <div class="formulario-campo">
+                <p>¿Desea recibir nuestras ofertas?</p>
+                <label><input name="ofertas" value="ofertas-tel" type="checkbox" class="input-checkbox">Por WhatsApp</label>
+                <label><input name="ofertas" value="ofertas-mail" type="checkbox" class="input-checkbox">Por correo electrónico</label>
+            </div>
+            <div class="formulario-campo">
+                <p>Comentario</p>
+                <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Escriba aquí" required></textarea>
+            </div>
+            <div class="formulario-campo contenedor-captcha">
+                <div class="captcha" ><span id="captcha"></span></div>
+                <input type="text" id="captcha-input" placeholder="Escriba el captcha aquí">
+                <div class="alerts">
+                    <span class="captcha-vacio" id="captcha-vacio">Debe ingresar los caracteres del captcha.</span>
+                    <span class="captcha-incorrecto" id="captcha-incorrecto">Los caracteres ingresados no coinciden con el captcha.</span>
+                    <span class="captcha-correcto" id="captcha-correcto">Captcha ingresado correctamente.</span>
+                </div>
+                
+            </div>
+            <div class="formulario-campo">
+                <button type="submit" id="btnsubmit" class="bordes boton-form">Enviar formulario</button>
+                <span class="enviado" id="enviado">El formulario fue enviado correctamente.</span>
+            </div>            
+        </form>
+        <script src="contacto.js"></script>
+</body>
+        

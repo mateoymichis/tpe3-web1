@@ -1,0 +1,83 @@
+<head></head>
+<body>
+    <p class="buscador">Buscar por destino <input type="text" id="input-buscador"></p>
+    <main class="destinos">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th class="tabla-head bordes">destino</th>
+                    <th class="tabla-head bordes">incluye</th>
+                    <th class="tabla-head bordes">duracion</th>
+                    <th class="tabla-head bordes col-precio">precio</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+            </tbody>
+    
+        </table>
+    </main>
+        <section>
+            <div class="botonera">
+    
+                <button class="bordes" id="btncargar">Agregar 3 destinos precargados</button>
+    
+                <button class="bordes" id="btnvaciar">Vaciar tabla</button>
+    
+            </div>
+    
+            <form class="formulario" action="" id="form">
+                <p>Destino</p>
+                <div class="borde-blanco">
+                    <div class="formulario-campo">
+                        <label for="ciudad">Ciudad</label>
+                        <input id="ciudad" type="text" name="ciudad" placeholder="Ciudad" required>
+                    </div>
+                    <div class="formulario-campo">
+                        <label for="pais">Pais</label>
+                        <input id="pais" type="text" name="pais" placeholder="Pais" required>
+                    </div>
+                </div>
+                <p>Servicios incluidos</p>
+                <div class="borde-blanco">
+                    <div class="formulario-campo">
+                        <label for="aereo">Aereo</label>
+                        <input id="aereo" type="text" name="aereo" placeholder="Aereo">
+                    </div>
+                    <div class="formulario-campo">
+                        <label for="bus">Bus</label>
+                        <input id="bus" type="text" name="bus" placeholder="Bus">
+                    </div>
+                    <div class="formulario-campo">
+                        <label for="hotel">Hotel</label>
+                        <input id="hotel" type="text" name="hotel" placeholder="Hotel" required>
+                    </div>
+                    <div class="formulario-campo">
+                        <label for="comida">Comida</label>
+                        <input id="comida" type="text" name="comida" placeholder="Comida" required>
+                    </div>
+                    <div class="formulario-campo">
+                        <label for="asistencia">Asistencia</label>
+                        <input id="asistencia" type="text" name="asistencia" placeholder="Asistencia" required>
+                    </div>
+                </div>
+                <p>Duración</p>
+                <div class="borde-blanco">
+                    <div class="formulario-campo">
+                        <label for="dias">Días</label>
+                        <input id="dias" type="number" name="dias" placeholder="Días" required>
+                    </div>
+                    <div class="formulario-campo">
+                        <label for="noches">Noches</label>
+                        <input id="noches" type="number" name="noches" placeholder="Noches" required>
+                    </div>
+                </div>
+                <div class="formulario-campo">
+                    <label for="precio">Precio</label>
+                    <input id="precio" type="number" name="precio" placeholder="Precio" required>
+                </div>
+                <div class="formulario-campo">
+                    <button class="bordes boton-form" type="submit" id="btnadd">Agregar destino</button>
+                </div>
+            </form>
+        </section>
+</body>

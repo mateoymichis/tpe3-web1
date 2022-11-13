@@ -1,0 +1,391 @@
+/*estilo general*/
+body {
+    font-family: 'K2D Semibold', sans-serif;
+    background-color: #f0f0f0;
+    background-image: url("img/vector2.jpg");
+    background-size: 60%;
+}
+
+.cabecera {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(120, 120, 223);
+}
+
+.abrir-menu {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+}
+
+.abrir-menu-ocultar {
+    display: none;
+}
+
+.cabecera-logo{
+    width: 3rem;
+    height: 3rem;
+}
+
+.cabecera-marca{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.link-logo {
+    text-decoration: none;
+}
+
+.cabecera-h1{
+    margin-left: 0.5rem;
+    color: white;
+}
+
+.menu-lista {
+    display: flex;
+    cursor: pointer;
+}
+
+.menu-lista-item {
+    list-style: none;
+    margin-right: 1rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.menu-lista-item:hover {
+   color: black;
+}
+
+.selected {
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(120, 120, 223);
+    padding: 0.5rem;
+}
+
+.footer-marca{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.footer-contact{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.contact-logo{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/*home*/
+.contenido-banner {
+    width: 100%;
+    height: 25rem;
+    background: url("img/playita.jpg") no-repeat center / cover;
+}
+
+.contenido-quienes-somos {
+    text-align: justify;
+    background: #f0f0f0;;
+    padding: 1.25rem;
+}
+.contenido-quienes-somos-lista {
+    list-style: none;
+    padding-inline-start: 0;
+    font-size: 1rem;
+}
+
+.contenido-quienes-somos-lista li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contenido-quienes-somos-lista li::before {
+    content: url("img/logobyn.svg");
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    margin-inline-end: 1rem;
+}
+
+
+/*destinos*/
+
+.buscador {
+    background: rgb(120, 120, 223);
+    color: #f0f0f0;
+    padding: 1rem 0 1rem 2rem;
+}
+.tabla {
+    width:100%;
+}
+
+.tabla th {
+    display: none;
+}
+
+.tabla td {
+    display: block;
+    text-align:center;
+}
+
+.bordes{
+    background-color: white;
+    border: rgb(120, 120, 223) 0.2rem;
+    border-style: ridge;
+    border-radius: 1rem;
+    border-spacing: 0.1rem;
+}
+
+.destacar-destino {
+    background: rgb(120, 120, 223);
+    font-size:1.3em;
+}
+
+.incluye {
+    list-style: none;
+}
+  
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-avion::before{
+    content: url("img/avion.svg");
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline-end: 0.4rem;
+}
+
+.icon-hotel::before{
+    content: url("img/hotel.svg");
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline-end: 0.4rem;
+}
+
+.icon-morfi::before{
+    content: url("img/morfi.svg");
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline-end: 0.4rem;
+}
+
+.icon-asist::before{
+    content: url("img/asist.svg");
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline-end: 0.4rem;
+}
+
+.icon-bus::before{
+    content: url("img/bus.svg");
+    width: 1.7rem;
+    height: 1.7rem;
+    margin-inline-end: 0.4rem;
+}
+
+p.margen{
+    margin: 0.3rem;
+}
+
+.botonera {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+
+.botonera button {
+    font-weight: bold;
+    padding: 0.5rem;
+    background-color: #fff;
+}
+
+.botonera button:hover {
+    background: rgb(120, 120, 223);
+}
+
+.boton-form {
+    font-weight: bold;
+}
+
+.boton-form:hover {
+    background: rgb(235, 229, 229);
+}
+
+.borde-blanco {
+    border: solid 1px #fff;
+    max-width: 90%;
+    padding: 1rem;
+    margin-left: -1rem;
+    margin-bottom: 1rem;
+}
+
+.borde-blanco .formulario-campo {
+    min-width: 100%;
+}
+
+.argentina {
+    background: radial-gradient(ellipse at center, #e4f5fc 6%,#bfe8f9 38%,#9fd8ef 61%,#2ab0ed 93%);
+}
+
+.tabla tr td:first-child {
+    font-size: 1.3rem;
+}
+ 
+/*contacto*/
+.contactenos {
+    border: rgb(120, 120, 223) solid 0.2rem;
+    border-radius: 1rem;
+    background: white;
+    padding: 1rem;
+    font-size: 1.25rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    max-width: 720px;
+    background: rgb(120, 120, 223);
+    padding: 2rem 0rem 1rem 3rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.formulario-campo {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+}
+
+.formulario-campo label {
+    margin-bottom: 0.5rem;
+}
+
+.formulario-campo input, .formulario-campo textarea {
+    padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.formulario-campo textarea {
+    resize: none;
+}
+
+.formulario button {
+    padding: 0.7rem;
+}
+
+.contenedor-captcha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.captcha {
+    margin-right: 1rem;
+    font-family: 'Nabla', cursive;
+    font-size: 30px;
+    user-select: none;
+}
+
+.captcha-vacio, .captcha-incorrecto, .captcha-correcto, .enviado  {
+    display: none;
+}
+
+.captcha-vacio-mostrar {
+    color: red;
+    margin-left: 0.5rem;
+}
+
+.captcha-incorrecto-mostrar {
+    color: red;
+    margin-left: 0.5rem;
+}
+
+.captcha-correcto-mostrar {
+    color: greenyellow;
+    margin-left: 0.5rem;
+}
+
+.enviado-ok {
+    display: inline;
+    text-align: center;
+    color: greenyellow;
+    margin-top: 1rem;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .cabecera {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .abrir-menu {
+        display: none;
+    }
+
+    .cabecera-menu {
+        display: flex;
+    }
+
+    .footer{
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .destinos {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .tabla {
+        width: 80%;
+        margin-top: 2rem;
+    }
+
+    .tabla-head {
+        height: 1.5rem;
+        text-transform: uppercase;
+        text-size-adjust: 150%;
+    }
+
+    .tabla th, .tabla td  {
+        display: table-cell;
+    }
+
+    .destacar-destino {
+        background: #fff;
+    }
+      
+    .botonera {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .contenedor-captcha {
+        flex-direction: row;
+    }
+
+}
