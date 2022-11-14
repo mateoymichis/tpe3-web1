@@ -130,7 +130,25 @@ body {
     background: rgb(120, 120, 223);
     color: #f0f0f0;
     padding: 1rem 0 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
 }
+
+.invisible {
+    display: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.paginador {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
 .tabla {
     width:100%;
 }
@@ -355,6 +373,10 @@ p.margen{
         padding: 1rem;
     }
 
+    .buscador {
+        flex-direction: row;
+        justify-content: space-between;
+    }
     .destinos {
         display: flex;
         justify-content: center;

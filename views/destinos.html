@@ -1,6 +1,13 @@
 <head></head>
 <body>
-    <p class="buscador">Buscar por destino <input type="text" id="input-buscador"></p>
+    <div class="buscador">
+        <div>
+            Destino: <input type="text" id="input-buscador"><button id="filtrar" class="pointer">Filtrar</button>
+        </div>
+        <div class="paginador">
+            <span id="anterior" class="pointer">Pagina anterior</span><span id="siguiente" class="pointer">Pagina siguiente</span>
+        </div>
+    </div>
     <main class="destinos">
         <table class="tabla">
             <thead>
