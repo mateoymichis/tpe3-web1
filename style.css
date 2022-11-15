@@ -149,6 +149,10 @@ body {
     padding: 1rem;
 }
 
+.paginador span:last-child {
+    padding-left: 1rem;
+}
+
 .tabla {
     width:100%;
 }

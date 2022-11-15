@@ -1,20 +1,18 @@
 import {load_content} from "../../navigation.js";
 export default function destinos() {
-    
-    //comienzo del nuevo codigo
-     const url ='https://6363a3068a3337d9a2e2f7d2.mockapi.io/Destinos';
-     const tabla = document.getElementById('tabla');
-     const form = document.getElementById('form');
-     const btnadd = document.getElementById('btnadd');
-     btnadd.addEventListener('click',nuevoRegistro);
-     const btnCargar = document.getElementById("btncargar");
-     btnCargar.addEventListener('click', () => {
-         agregarPrecargados(precargados);
-     });
-     //const btnVaciar = document.getElementById("btnvaciar");
-     //btnVaciar.addEventListener('click', eliminarTodo);
-     const precargados = [
-         {"destino": {   "ciudad": "Cancun",
+    const url ='https://6363a3068a3337d9a2e2f7d2.mockapi.io/Destinos';
+    const tabla = document.getElementById('tabla');
+    const form = document.getElementById('form');
+    const btnadd = document.getElementById('btnadd');
+    btnadd.addEventListener('click',nuevoRegistro);
+    const btnCargar = document.getElementById("btncargar");
+    btnCargar.addEventListener('click', () => {
+        agregarPrecargados(precargados);
+    });
+    //const btnVaciar = document.getElementById("btnvaciar");
+    //btnVaciar.addEventListener('click', eliminarTodo);
+    const precargados = [
+        {"destino": {   "ciudad": "Cancun",
                          "pais": "Mexico"
                      },
                      "incluye": {    "aereo": "Aereos ida y vuelta desde Bs. As.",
@@ -27,8 +25,8 @@ export default function destinos() {
                                      "noches": 7
                      },
                      "precio": 2100
-                     },
-         {"destino": {   "ciudad": "San Andres",
+                    },
+        {"destino": {   "ciudad": "San Andres",
                          "pais": "Colombia"
                      },
                      "incluye": {    "aereo": "Aereos ida y vuelta desde Bs. As.",
@@ -41,8 +39,8 @@ export default function destinos() {
                                      "noches": 7
                      },
                      "precio": 1500
-                     },
-         {"destino": {   "ciudad": "Cataratas del Iguazu",
+                    },
+        {"destino": {   "ciudad": "Cataratas del Iguazu",
                          "pais": "Argentina"
                      },
                      "incluye": {    "aereo": "",
@@ -54,8 +52,8 @@ export default function destinos() {
                      "duracion": {   "dias": 5,
                                      "noches": 3},
                      "precio": 450
-                     }
-     ];
+                    }
+    ];
  
      let pagina = 1;
      obtenerDatosPaginados(pagina); 
@@ -325,6 +323,7 @@ export default function destinos() {
                          let lugar = lugares[i];
                          lugar.classList.remove("invisible");
                      }
+                     obtenerDatosPaginados(pagina); 
                  }
  
              }
@@ -334,5 +333,5 @@ export default function destinos() {
      
      });
  
- }
+}
  
