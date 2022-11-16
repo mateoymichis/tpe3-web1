@@ -1,4 +1,6 @@
 import {load_content} from "../../navigation.js";
+import precargados from "../precargados.js";
+
 export default function destinos() {
     const url ='https://6363a3068a3337d9a2e2f7d2.mockapi.io/Destinos';
     const tabla = document.getElementById('tabla');
@@ -9,56 +11,31 @@ export default function destinos() {
     btnCargar.addEventListener('click', () => {
         agregarPrecargados(precargados);
     });
-    //const btnVaciar = document.getElementById("btnvaciar");
-    //btnVaciar.addEventListener('click', eliminarTodo);
-    const precargados = [
-        {"destino": {   "ciudad": "Cancun",
-                         "pais": "Mexico"
-                     },
-                     "incluye": {    "aereo": "Aereos ida y vuelta desde Bs. As.",
-                                     "bus": "",
-                                     "hotel": "Hotel 5★ Cancun Beach Resort",
-                                     "comida": "All inclusive",
-                                     "asistencia": "Asistencia al viajero"
-                     },
-                     "duracion": {   "dias": 8,
-                                     "noches": 7
-                     },
-                     "precio": 2100
-                    },
-        {"destino": {   "ciudad": "San Andres",
-                         "pais": "Colombia"
-                     },
-                     "incluye": {    "aereo": "Aereos ida y vuelta desde Bs. As.",
-                                     "bus": "",
-                                     "hotel": "Hotel 4★ habitacion con vista al mar",
-                                     "comida": " Pension completa, bebidas incluidase",
-                                     "asistencia": "Asistencia al viajero"
-                     },
-                     "duracion": {   "dias": 8,
-                                     "noches": 7
-                     },
-                     "precio": 1500
-                    },
-        {"destino": {   "ciudad": "Cataratas del Iguazu",
-                         "pais": "Argentina"
-                     },
-                     "incluye": {    "aereo": "",
-                                     "bus": "Traslados ida y vuelta. Bus semi-cama",
-                                     "hotel": "Hotel 4★",
-                                     "comida": " Desayuno",
-                                     "asistencia": "Excursion a Garganta del diablo"
-                                 },
-                     "duracion": {   "dias": 5,
-                                     "noches": 3},
-                     "precio": 450
-                    }
-    ];
+    const btnVaciar = document.getElementById("btnvaciar");
+    btnVaciar.addEventListener('click', eliminarTodo);
+
+    let pagina = 1;
+    obtenerDatosPaginados(pagina); 
  
-     let pagina = 1;
-     obtenerDatosPaginados(pagina); 
- 
-     let cantidadDatos = 0;
+    let cantidadDatos = 0;
+    contarDatos();
+
+    async function eliminarTodo() {
+        try {
+            let res = await fetch(url);
+            let json = await res.json();
+            for (const lugar of json) {
+                await borrar(lugar.id);
+            }
+            await contarDatos();
+            pagina = 1;
+            await obtenerDatosPaginados(pagina);
+        } catch (error) {
+            console.log("Error! - " + error)
+        }
+    }
+   
+     
  
      async function obtenerDatos() {
          borrarFilasTabla();
@@ -85,7 +62,7 @@ export default function destinos() {
          }
      }
  
-     contarDatos();
+     
  
  
      async function obtenerDatosPaginados(pagina) {
@@ -148,6 +125,7 @@ export default function destinos() {
          columna1.classList.add("info-lugar");
          modificar.innerHTML = `<img src="../img/pencil - white.svg">`;
          modificar.databuttonname = id;
+         modificar.classList.add("bordes","pointer");
          modificar.addEventListener('click', ()=>{
              let lugarId = modificar.databuttonname;
              load_content("update-destino");
@@ -157,9 +135,11 @@ export default function destinos() {
          });
          borrar.innerHTML = `<img src="../img/trash.svg">`;
          borrar.databuttonname = id;
+         borrar.classList.add("bordes","pointer");
          borrar.addEventListener('click', ()=>{
              let id = borrar.databuttonname;
              borrarItem(id);
+             obtenerDatosPaginados(pagina);
          });
          columna1.innerHTML = lugar.destino.ciudad + ', ' + lugar.destino.pais;
          columna3.innerHTML = lugar.duracion.dias + ' días/ '+ lugar.duracion.noches + ' noches';
@@ -260,15 +240,12 @@ export default function destinos() {
      function borrarItem (id) {
          borrar(id);
      }
- 
+
      async function borrar(id) {
          try {
              let res = await fetch (`${url}/${id}`, {
                  "method": "DELETE"
              });
-             if (res.status === 200) {
-                 obtenerDatosPaginados(pagina);
-             }
          } catch (error) {
              console.log(error);
          }
@@ -286,6 +263,8 @@ export default function destinos() {
                  console.log("Error! - " + error)
              }
          }
+         pagina = 1;
+         contarDatos();
          obtenerDatosPaginados(pagina);
      }
  

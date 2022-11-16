@@ -133,6 +133,7 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 100%;
+    align-items: center;
 }
 
 .invisible {
@@ -145,12 +146,11 @@ body {
 
 .paginador {
     display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+    justify-content: center;
 }
 
 .paginador span:last-child {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
 }
 
 .tabla {
@@ -380,6 +380,9 @@ p.margen{
     .buscador {
         flex-direction: row;
         justify-content: space-between;
+    }
+    .paginador {
+        padding-right: 2rem;
     }
     .destinos {
         display: flex;
