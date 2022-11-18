@@ -3,6 +3,7 @@ import precargados from "../precargados.js";
 
 export default function destinos() {
     const url ='https://6363a3068a3337d9a2e2f7d2.mockapi.io/Destinos';
+    const resultadosPorPagina = 5;
     const tabla = document.getElementById('tabla');
     const form = document.getElementById('form');
     const btnadd = document.getElementById('btnadd');
@@ -13,6 +14,7 @@ export default function destinos() {
     });
     const btnVaciar = document.getElementById("btnvaciar");
     btnVaciar.addEventListener('click', eliminarTodo);
+
 
     let pagina = 1;
     obtenerDatosPaginados(pagina); 
@@ -34,21 +36,6 @@ export default function destinos() {
             console.log("Error! - " + error)
         }
     }
-   
-     
- 
-     async function obtenerDatos() {
-         borrarFilasTabla();
-         try {
-             let res = await fetch(url);
-             let json = await res.json();
-             for (const lugar of json) {
-                 agregarFila(lugar);
-             }
-         } catch (error) {
-             console.log("Error! - " + error)
-         }
-     }
  
      async function contarDatos() {
          try {
@@ -62,11 +49,7 @@ export default function destinos() {
          }
      }
  
-     
- 
- 
      async function obtenerDatosPaginados(pagina) {
-         let resultadosPorPagina = 5;
          borrarFilasTabla();
          try {
              let res = await fetch(`${url}?page=${pagina}&limit=${resultadosPorPagina}`);
@@ -84,7 +67,6 @@ export default function destinos() {
      let anterior = document.getElementById("anterior");
      
      anterior.addEventListener("click", ()=> {
-         contarDatos();
          if (pagina > 1) {
              pagina--;
              obtenerDatosPaginados(pagina);
@@ -95,8 +77,8 @@ export default function destinos() {
  
  
      siguiente.addEventListener("click", ()=> {
-         contarDatos();
-         if ((cantidadDatos/5) > pagina) {
+        contarDatos();
+         if ((cantidadDatos/resultadosPorPagina) > pagina) {
              pagina++;
              obtenerDatosPaginados(pagina);
          }
@@ -125,7 +107,7 @@ export default function destinos() {
          columna1.classList.add("info-lugar");
          modificar.innerHTML = `<img src="../img/pencil - white.svg">`;
          modificar.databuttonname = id;
-         modificar.classList.add("bordes","pointer");
+         modificar.classList.add("bordes","pointer", "margen");
          modificar.addEventListener('click', ()=>{
              let lugarId = modificar.databuttonname;
              load_content("update-destino");
@@ -135,11 +117,11 @@ export default function destinos() {
          });
          borrar.innerHTML = `<img src="../img/trash.svg">`;
          borrar.databuttonname = id;
-         borrar.classList.add("bordes","pointer");
-         borrar.addEventListener('click', ()=>{
-             let id = borrar.databuttonname;
-             borrarItem(id);
-             obtenerDatosPaginados(pagina);
+         borrar.classList.add("bordes","pointer", "margen");
+         borrar.addEventListener('click', async ()=>{
+            let id = borrar.databuttonname;
+            await borrarItem(id);
+            await tablaVacia();
          });
          columna1.innerHTML = lugar.destino.ciudad + ', ' + lugar.destino.pais;
          columna3.innerHTML = lugar.duracion.dias + ' días/ '+ lugar.duracion.noches + ' noches';
@@ -194,6 +176,12 @@ export default function destinos() {
          }
      }
  
+     async function tablaVacia() {
+        if (tabla.rows.length === 0) {
+            pagina--;
+            await obtenerDatosPaginados(pagina);
+        }
+    }
      async function nuevoRegistro (evento) {
          evento.preventDefault();
          let aereoValor = '';
@@ -235,10 +223,10 @@ export default function destinos() {
          }
      }  
  
-     //lo puse así porque me decia que borrar() no era una funcion
- 
-     function borrarItem (id) {
-         borrar(id);
+     async function borrarItem (id) {
+        await borrar(id);
+        await obtenerDatosPaginados(pagina);
+        
      }
 
      async function borrar(id) {
@@ -268,7 +256,15 @@ export default function destinos() {
          obtenerDatosPaginados(pagina);
      }
  
-     
+     let cerrarFiltro = document.querySelector("#cerrar-filtro");
+     cerrarFiltro.addEventListener("click", ()=>{
+        let buscador = document.querySelector("#input-buscador");
+        if (buscador.value != "") {
+            buscador.value = "";
+            obtenerDatosPaginados(pagina);
+        }
+     } );
+
      let filtrar = document.getElementById("filtrar");
 
      filtrar.addEventListener("click", async () => {

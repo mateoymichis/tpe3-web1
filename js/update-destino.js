@@ -1,4 +1,5 @@
 import {load_content} from "../../navigation.js";
+
 export default function updateDestino() {
     const url ='https://6363a3068a3337d9a2e2f7d2.mockapi.io/Destinos';
 

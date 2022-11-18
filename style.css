@@ -136,6 +136,9 @@ body {
     align-items: center;
 }
 
+.margen {
+    margin-left: 0.2rem;
+}
 .invisible {
     display: none;
 }
@@ -271,7 +274,7 @@ p.margen{
 .tabla tr td:first-child {
     font-size: 1.3rem;
 }
- 
+
 /*contacto*/
 .contactenos {
     border: rgb(120, 120, 223) solid 0.2rem;
@@ -351,6 +354,10 @@ p.margen{
     display: inline;
     text-align: center;
     color: greenyellow;
+    margin-top: 1rem;
+}
+
+.form-edit {
     margin-top: 1rem;
 }
 

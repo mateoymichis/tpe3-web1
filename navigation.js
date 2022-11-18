@@ -80,7 +80,6 @@ window.onload = (event) => {
 
 window.addEventListener("popstate", (event) => {
     let stateId = event.state.id;
-    console.log("stateId = ",stateId);
     select_tab(stateId);
     load_content(stateId);
 });
