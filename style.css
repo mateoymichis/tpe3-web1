@@ -363,7 +363,6 @@ p.margen{
 
 
 @media screen and (min-width: 768px) {
-
     .cabecera {
         flex-direction: row;
         justify-content: space-between;
@@ -388,9 +387,11 @@ p.margen{
         flex-direction: row;
         justify-content: space-between;
     }
+
     .paginador {
         padding-right: 2rem;
     }
+
     .destinos {
         display: flex;
         justify-content: center;
@@ -423,5 +424,4 @@ p.margen{
     .contenedor-captcha {
         flex-direction: row;
     }
-
 }

@@ -17,6 +17,7 @@ function mostrarMenu() {
     abrirMenu.classList.toggle('abrir-menu-ocultar');
     cerrarMenu.classList.toggle('abrir-menu-ocultar');
 }
+
 let irHome = document.querySelector("#cabecera-marca");
 irHome.addEventListener("click", iniciar);
 
@@ -56,19 +57,14 @@ async function load_content(id) {
 }
 
 function push(event) {
-    // Get id attribute of the button or link clicked
     let id = event.target.id;
-    // Visually select the clicked button/tab/box
     select_tab(id);
-    // Update Title in Window's Tab
     if (id === "home") {
         document.title = "Viaj.Ar"
     } else {
         document.title = `Viaj.Ar - `+`${id}`.toUpperCase();
     }
-    // Load content for this tab/page
     load_content(id);
-    // Finally push state change to the address bar
     window.history.pushState({id}, `${id}`,`/${id}`);
 }
 
