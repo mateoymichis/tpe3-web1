@@ -177,7 +177,7 @@ export default function destinos() {
     }
  
     async function tablaVacia() {
-        if (tabla.rows.length === 0) {
+        if (tabla.rows.length === 0 && pagina > 1) {
             pagina--;
             await obtenerDatosPaginados(pagina);
         }
@@ -224,6 +224,7 @@ export default function destinos() {
  
     async function borrarItem (id) {
         await borrar(id);
+        await contarDatos();
         await obtenerDatosPaginados(pagina);
     }
 
