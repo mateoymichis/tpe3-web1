@@ -215,6 +215,7 @@ export default function destinos() {
             });
             if (res.status === 201) {
                 form.reset();
+                contarDatos();
                 obtenerDatosPaginados(pagina);
             }
         } catch (error) {
